@@ -1,6 +1,6 @@
 "use strict";
 
-var app = {
+var appObject = {
   title: "Title",
   subtitle: "Subtitle",
   options: ['One', 'Two']
@@ -38,28 +38,23 @@ function render() {
     render();
   }
 
-  var template = React.createElement(
+  var app = React.createElement(
     "div",
     null,
     React.createElement(
       "h1",
       { "class": "test more-test" },
-      app.title
+      appObject.title
     ),
-    app.subtitle && React.createElement(
+    appObject.subtitle && React.createElement(
       "p",
       null,
-      app.subtitle
-    ),
-    React.createElement(
-      "h3",
-      null,
-      optionsCount
+      appObject.subtitle
     ),
     React.createElement(
       "p",
       null,
-      app.options.length > 0 ? "Here are your options" : "No options"
+      appObject.options.length > 0 ? "Here are your options" : "No options"
     ),
     React.createElement(
       "ol",
@@ -99,9 +94,9 @@ function render() {
     )
   );
 
-  var appRoot = document.getElementById('app');
+  var content = document.getElementById('content');
 
-  ReactDOM.render(template, appRoot);
+  ReactDOM.render(app, content);
 }
 
 render();

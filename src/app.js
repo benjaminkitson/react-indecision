@@ -1,4 +1,4 @@
-const app = {
+const appObject = {
   title: "Title",
   subtitle: "Subtitle",
   options: ['One', 'Two']
@@ -30,20 +30,18 @@ function render() {
     render()
   }
 
-
   function select() {
     const num = Math.floor(Math.random()*optionsCount)
     selection = options[num]
     render()
   }
 
-  const template = (
+  const app = (
 
     <div>
-      <h1 class='test more-test'>{app.title}</h1>
-      {app.subtitle && <p>{app.subtitle}</p>}
-      <h3>{optionsCount}</h3>
-      <p>{(app.options.length > 0) ? "Here are your options" : "No options"}</p>
+      <h1 class='test more-test'>{appObject.title}</h1>
+      {appObject.subtitle && <p>{appObject.subtitle}</p>}
+      <p>{(appObject.options.length > 0) ? "Here are your options" : "No options"}</p>
       <ol>
       {options.map((item,i) => {
         return <li key={i}>{item}</li>
@@ -60,10 +58,9 @@ function render() {
 
   );
 
-  const appRoot = document.getElementById('app');
+  const content = document.getElementById('content');
 
-  ReactDOM.render(template, appRoot)
-
+  ReactDOM.render(app, content)
 }
 
-  render();
+render();
