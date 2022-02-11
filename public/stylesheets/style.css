@@ -11,3 +11,8 @@
   height: 100vh;
   padding: 40px;
 }
+
+.list-div {
+  height: 300px;
+  width: 300px;
+}

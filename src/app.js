@@ -1,12 +1,11 @@
 const appObject = {
-  title: "Title",
-  subtitle: "Subtitle",
-  options: ['One', 'Two']
+  title: "Random",
+  subtitle: "Randomly choose stuff, I guess?"
 }
 
   let options = []
   let optionsCount = options.length
-  let selection
+  let selection = "Nothing added yet."
 
 function render() {
 
@@ -32,7 +31,7 @@ function render() {
 
   function select() {
     const num = Math.floor(Math.random()*optionsCount)
-    selection = options[num]
+    if (options[num]) selection = options[num]
     render()
   }
 
@@ -41,19 +40,21 @@ function render() {
     <div>
       <h1 class='test more-test'>{appObject.title}</h1>
       {appObject.subtitle && <p>{appObject.subtitle}</p>}
-      <p>{(appObject.options.length > 0) ? "Here are your options" : "No options"}</p>
-      <ol>
-      {options.map((item,i) => {
-        return <li key={i}>{item}</li>
-      })}
-      </ol>
-      <button onClick={select}>What should I do?</button>
+      <form onSubmit={submitFunc}>
+      <input type="text" name="option"></input>
+      <button>Add</button>
+      </form>
+      <p>{(options.length > 0) ? "Stuff that you want to randomly choose from:" : "Add some stuff!"}</p>
+      <div className="list-div">
+          <ol>
+          {options.map((item,i) => {
+            return <li key={i}>{item}</li>
+          })}
+          </ol>
+        </div>
+      <button onClick={select}>GENERATE</button>
       <h1>{selection}</h1>
       <button onClick={deleteAll}>Remove all</button>
-      <form onSubmit={submitFunc}>
-        <input type="text" name="option"></input>
-        <button>Submit</button>
-      </form>
     </div>
 
   );

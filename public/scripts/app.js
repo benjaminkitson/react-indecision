@@ -1,14 +1,13 @@
 "use strict";
 
 var appObject = {
-  title: "Title",
-  subtitle: "Subtitle",
-  options: ['One', 'Two']
+  title: "Random",
+  subtitle: "Randomly choose stuff, I guess?"
 };
 
 var options = [];
 var optionsCount = options.length;
-var selection = void 0;
+var selection = "Nothing added yet.";
 
 function render() {
 
@@ -34,7 +33,7 @@ function render() {
 
   function select() {
     var num = Math.floor(Math.random() * optionsCount);
-    selection = options[num];
+    if (options[num]) selection = options[num];
     render();
   }
 
@@ -52,25 +51,39 @@ function render() {
       appObject.subtitle
     ),
     React.createElement(
-      "p",
-      null,
-      appObject.options.length > 0 ? "Here are your options" : "No options"
+      "form",
+      { onSubmit: submitFunc },
+      React.createElement("input", { type: "text", name: "option" }),
+      React.createElement(
+        "button",
+        null,
+        "Add"
+      )
     ),
     React.createElement(
-      "ol",
+      "p",
       null,
-      options.map(function (item, i) {
-        return React.createElement(
-          "li",
-          { key: i },
-          item
-        );
-      })
+      options.length > 0 ? "Stuff that you want to randomly choose from:" : "Add some stuff!"
+    ),
+    React.createElement(
+      "div",
+      { className: "list-div" },
+      React.createElement(
+        "ol",
+        null,
+        options.map(function (item, i) {
+          return React.createElement(
+            "li",
+            { key: i },
+            item
+          );
+        })
+      )
     ),
     React.createElement(
       "button",
       { onClick: select },
-      "What should I do?"
+      "GENERATE"
     ),
     React.createElement(
       "h1",
@@ -81,16 +94,6 @@ function render() {
       "button",
       { onClick: deleteAll },
       "Remove all"
-    ),
-    React.createElement(
-      "form",
-      { onSubmit: submitFunc },
-      React.createElement("input", { type: "text", name: "option" }),
-      React.createElement(
-        "button",
-        null,
-        "Submit"
-      )
     )
   );
 
