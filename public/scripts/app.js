@@ -39,7 +39,7 @@ function render() {
 
   var app = React.createElement(
     "div",
-    null,
+    { className: "react-app" },
     React.createElement(
       "h1",
       { "class": "test more-test" },
@@ -61,7 +61,7 @@ function render() {
       )
     ),
     React.createElement(
-      "p",
+      "h3",
       null,
       options.length > 0 ? "Stuff that you want to randomly choose from:" : "Add some stuff!"
     ),

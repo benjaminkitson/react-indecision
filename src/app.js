@@ -37,14 +37,14 @@ function render() {
 
   const app = (
 
-    <div>
+    <div className="react-app">
       <h1 class='test more-test'>{appObject.title}</h1>
       {appObject.subtitle && <p>{appObject.subtitle}</p>}
       <form onSubmit={submitFunc}>
       <input type="text" name="option"></input>
       <button>Add</button>
       </form>
-      <p>{(options.length > 0) ? "Stuff that you want to randomly choose from:" : "Add some stuff!"}</p>
+      <h3>{(options.length > 0) ? "Stuff that you want to randomly choose from:" : "Add some stuff!"}</h3>
       <div className="list-div">
           <ol>
           {options.map((item,i) => {
