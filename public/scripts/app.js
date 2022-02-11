@@ -7,7 +7,7 @@ var appObject = {
 
 var options = [];
 var optionsCount = options.length;
-var selection = "Nothing added yet.";
+var selection = "Nothing generated yet.";
 
 function render() {
 
@@ -28,6 +28,7 @@ function render() {
   function deleteAll() {
     options = [];
     optionsCount = options.length;
+    selection = "Nothing generated yet.";
     render();
   }
 
@@ -93,7 +94,7 @@ function render() {
     React.createElement(
       "button",
       { onClick: deleteAll },
-      "Remove all"
+      "Reset"
     )
   );
 

@@ -5,7 +5,7 @@ const appObject = {
 
   let options = []
   let optionsCount = options.length
-  let selection = "Nothing added yet."
+  let selection = "Nothing generated yet."
 
 function render() {
 
@@ -26,6 +26,7 @@ function render() {
   function deleteAll() {
     options = [];
     optionsCount = options.length;
+    selection = "Nothing generated yet."
     render()
   }
 
@@ -54,7 +55,7 @@ function render() {
         </div>
       <button onClick={select}>GENERATE</button>
       <h1>{selection}</h1>
-      <button onClick={deleteAll}>Remove all</button>
+      <button onClick={deleteAll}>Reset</button>
     </div>
 
   );
