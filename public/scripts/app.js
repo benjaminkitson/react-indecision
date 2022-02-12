@@ -1,106 +1,47 @@
-"use strict";
+'use strict';
 
-var appObject = {
-  title: "Random",
-  subtitle: "Randomly choose stuff, I guess?"
-};
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var options = [];
-var optionsCount = options.length;
-var selection = "Nothing generated yet.";
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function render() {
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  function submitFunc(e) {
-    e.preventDefault();
-    var text = e.target.elements.option.value;
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-    if (text) {
-      options.push(text);
-      optionsCount = options.length;
-      console.log(optionsCount);
-      e.target.elements.option.value = '';
+var Header = function (_React$Component) {
+  _inherits(Header, _React$Component);
+
+  function Header() {
+    _classCallCheck(this, Header);
+
+    return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+  }
+
+  _createClass(Header, [{
+    key: 'render',
+    value: function render() {
+      return React.createElement(
+        'div',
+        null,
+        React.createElement(
+          'h1',
+          null,
+          'Random'
+        ),
+        React.createElement(
+          'h2',
+          null,
+          'Randomly choose stuff, I guess?'
+        )
+      );
     }
+  }]);
 
-    render();
-  }
+  return Header;
+}(React.Component);
 
-  function deleteAll() {
-    options = [];
-    optionsCount = options.length;
-    selection = "Nothing generated yet.";
-    render();
-  }
+var app = React.createElement(Header, null);
 
-  function select() {
-    var num = Math.floor(Math.random() * optionsCount);
-    if (options[num]) selection = options[num];
-    render();
-  }
+var content = document.getElementById('content');
 
-  var app = React.createElement(
-    "div",
-    { className: "react-app" },
-    React.createElement(
-      "h1",
-      { "class": "test more-test" },
-      appObject.title
-    ),
-    appObject.subtitle && React.createElement(
-      "p",
-      null,
-      appObject.subtitle
-    ),
-    React.createElement(
-      "form",
-      { onSubmit: submitFunc },
-      React.createElement("input", { type: "text", name: "option" }),
-      React.createElement(
-        "button",
-        null,
-        "Add"
-      )
-    ),
-    React.createElement(
-      "h3",
-      null,
-      options.length > 0 ? "Stuff that you want to randomly choose from:" : "Add some stuff!"
-    ),
-    React.createElement(
-      "div",
-      { className: "list-div" },
-      React.createElement(
-        "ol",
-        null,
-        options.map(function (item, i) {
-          return React.createElement(
-            "li",
-            { key: i },
-            item
-          );
-        })
-      )
-    ),
-    React.createElement(
-      "button",
-      { onClick: select },
-      "GENERATE"
-    ),
-    React.createElement(
-      "h1",
-      null,
-      selection
-    ),
-    React.createElement(
-      "button",
-      { onClick: deleteAll },
-      "Reset"
-    )
-  );
-
-  var content = document.getElementById('content');
-
-  ReactDOM.render(app, content);
-}
-
-render();
+ReactDOM.render(app, content);
