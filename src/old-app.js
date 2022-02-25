@@ -1,39 +1,39 @@
 const appObject = {
   title: "Random",
   subtitle: "Randomly choose stuff, I guess?"
-}
+};
 
-  let options = []
-  let optionsCount = options.length
-  let selection = "Nothing generated yet."
+  let options = [];
+  let optionsCount = options.length;
+  let selection = "Nothing generated yet.";
 
 function render() {
 
   function submitFunc(e) {
-    e.preventDefault()
-    let text = e.target.elements.option.value
+    e.preventDefault();
+    let text = e.target.elements.option.value;
 
     if (text) {
-      options.push(text)
-      optionsCount = options.length
-      console.log(optionsCount)
-      e.target.elements.option.value = ''
+      options.push(text);
+      optionsCount = options.length;
+      console.log(optionsCount);
+      e.target.elements.option.value = '';
     }
 
-    render()
+    render();
   }
 
   function deleteAll() {
     options = [];
     optionsCount = options.length;
-    selection = "Nothing generated yet."
-    render()
+    selection = "Nothing generated yet.";
+    render();
   }
 
   function select() {
-    const num = Math.floor(Math.random()*optionsCount)
-    if (options[num]) selection = options[num]
-    render()
+    const num = Math.floor(Math.random()*optionsCount);
+    if (options[num]) selection = options[num];
+    render();
   }
 
   const app = (
@@ -62,7 +62,7 @@ function render() {
 
   const content = document.getElementById('content');
 
-  ReactDOM.render(app, content)
+  ReactDOM.render(app, content);
 }
 
 render();
