@@ -13,7 +13,7 @@ export default class AddOption extends React.Component {
     return (
       <form onSubmit={this.addOption}>
         <input type="text" name="option"></input>
-        <button>Add</button>
+        <button className="button">Add</button>
       </form>
     );
   }

@@ -8,7 +8,7 @@ export default class Option extends React.Component {
 
   render() {
     return (
-      <li>{this.props.option}<button onClick={this.deleteOption}>Delete</button></li>
+      <li>{this.props.option}<button className="button delete--button" onClick={this.deleteOption}>Delete</button></li>
     );
   }
 }

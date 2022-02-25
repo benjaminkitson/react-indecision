@@ -9,7 +9,7 @@ function Options(props) {
           {props.options.map(option => <Option key={option} option={option} deleteOption={props.deleteOption} />)}
         </ol>
       </div>
-      <button onClick={props.resetOptions}>Reset</button>
+      <button className="button" onClick={props.resetOptions}>Reset</button>
     </div>
   );
 }

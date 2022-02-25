@@ -1,5 +1,13 @@
-$brand-color: blue;
+@import './base/settings';
+@import './base/_base';
+@import './components/_addoption';
+@import './components/_option';
+@import './components/_options';
+@import './components/_header';
+@import './components/_generate';
 
-* {
-  color: $brand-color
+// Dummy class to hide the annoyign webpack overlay
+
+#webpack-dev-server-client-overlay {
+  display: none;
 }

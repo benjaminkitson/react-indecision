@@ -54,11 +54,11 @@ export default class App extends React.Component {
     return (
       <div className="app">
         <Header />
-        <Generate hasOptions={this.state.options.length > 0} generate={this.generate} />
         <Options options={this.state.options} resetOptions={this.resetOptions} deleteOption={this.deleteOption} />
         <AddOption options={this.state.options} addOption={this.addOption} />
         <h1>{this.state.selection}</h1>
         <OptionModal selectedOption={this.state.selectedOption} clearGenerated={this.clearGenerated}/>
+        <Generate hasOptions={this.state.options.length > 0} generate={this.generate} />
       </div>
     );
   }
