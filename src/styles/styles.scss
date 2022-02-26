@@ -5,9 +5,10 @@
 @import './components/_options';
 @import './components/_header';
 @import './components/_generate';
+@import './components/_buttons';
 
-// Dummy class to hide the annoyign webpack overlay
+// Dummy class to hide the annoying webpack overlay
 
-#webpack-dev-server-client-overlay {
-  display: none;
-}
+// #webpack-dev-server-client-overlay {
+//   display: none;
+// }
