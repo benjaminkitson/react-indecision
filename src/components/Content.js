@@ -3,14 +3,12 @@ import Header from './Header';
 import Generate from './Generate';
 import Options from './Options';
 import AddOption from './AddOption';
-import OptionModal from './OptionModal';
 
 export default class Content extends React.Component {
 
   state = {
     options: [],
-    selection: 'Nothing yet.',
-    selectedOption: undefined
+    selectedOption: 'Nothing yet.',
   };
 
   componentDidMount() {
@@ -42,7 +40,7 @@ export default class Content extends React.Component {
   };
 
   clearGenerated = () => {
-    this.setState(() => ({selectedOption: undefined}));
+    this.setState(() => ({selectedOption: "Nothing yet."}));
   };
 
   generate = () => {
@@ -56,8 +54,7 @@ export default class Content extends React.Component {
         <Header />
         <Options options={this.state.options} resetOptions={this.resetOptions} deleteOption={this.deleteOption} />
         <AddOption options={this.state.options} addOption={this.addOption} />
-        <h1>{this.state.selection}</h1>
-        <OptionModal selectedOption={this.state.selectedOption} clearGenerated={this.clearGenerated}/>
+        <h1>{this.state.selectedOption}</h1>
         <Generate hasOptions={this.state.options.length > 0} generate={this.generate} />
       </div>
     );
