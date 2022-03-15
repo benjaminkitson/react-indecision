@@ -29,7 +29,7 @@ export default class Content extends React.Component {
 
   addOption = (option) => {
     if (option && !this.state.options.includes(option)) {
-      this.setState((prevState) => ({ options: prevState.options.concat(option) }));
+      this.setState((prevState) => ({ options: prevState.options.concat(option), selectedOption: 'Add some more stuff!'}));
     } else if (this.state.options.includes(option)) {
       this.setState(() => ({ selectedOption: 'No duplicates please!' }));
     }
