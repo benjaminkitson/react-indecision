@@ -4,7 +4,7 @@ import Option from './Option';
 function Options(props) {
   return (
     <div>
-      <div className="list-div">
+      <div className="options-list">
         <ol>
           {props.options.map(option => <Option key={option} option={option} deleteOption={props.deleteOption} />)}
         </ol>

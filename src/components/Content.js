@@ -5,7 +5,7 @@ import Options from './Options';
 import AddOption from './AddOption';
 import OptionModal from './OptionModal';
 
-export default class App extends React.Component {
+export default class Content extends React.Component {
 
   state = {
     options: [],
@@ -52,7 +52,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="content">
         <Header />
         <Options options={this.state.options} resetOptions={this.resetOptions} deleteOption={this.deleteOption} />
         <AddOption options={this.state.options} addOption={this.addOption} />

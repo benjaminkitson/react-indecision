@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
+import Content from './components/Content';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 
+const app = document.getElementById('app');
 
-const content = document.getElementById('content');
-
-ReactDOM.render(<App/>, content);
+ReactDOM.render(<Content/>, app);
