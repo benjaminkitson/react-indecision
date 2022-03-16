@@ -6,6 +6,7 @@
   width: 140px;
   height: 40px;
   cursor: pointer;
+  line-height: 1;
 }
 
 .button:hover:not([disabled]) {
@@ -47,8 +48,14 @@
 }
 
 .delete--button:hover:not([disabled]) {
-  background-color: rgb(93, 93, 93);
+  background-color: rgb(115, 0, 0);
   border: 1px solid rgb(120, 120, 120)
+}
+
+.delete--button:active:not([disabled]) {
+  background-color: rgb(101, 0, 0);
+  border: 1px solid rgb(100, 100, 100);
+  color: darken(white, 70%)
 }
 
 .reset-button {
