@@ -16,7 +16,7 @@
 .button:active:not([disabled]) {
   background-color: darken($primary, 20%);
   border: 1px solid darken($primary, 10%);
-  color: darken(white, 50%)
+  color: darken(white, 70%)
 }
 
 .button:disabled {
@@ -53,4 +53,16 @@
 .reset-button {
   width: 100px;
   height: 30px;
+  background-color: grey;
+  border: 1px solid rgb(164, 164, 164);
+}
+
+.reset-button:hover:not([disabled]) {
+  background-color: rgb(115, 0, 0)
+}
+
+.reset-button:active:not([disabled]) {
+  background-color: rgb(101, 0, 0);
+  border: 1px solid rgb(100, 100, 100);
+  color: darken(white, 70%)
 }
