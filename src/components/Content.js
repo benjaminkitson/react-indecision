@@ -54,7 +54,7 @@ export default class Content extends React.Component {
         <Header />
         <Options options={this.state.options} resetOptions={this.resetOptions} deleteOption={this.deleteOption} />
         <AddOption options={this.state.options} addOption={this.addOption} />
-        <h1>{this.state.selectedOption}</h1>
+        <h1 className="selection">{this.state.selectedOption}</h1>
         <Generate hasOptions={this.state.options.length > 0} generate={this.generate} />
       </div>
     );
