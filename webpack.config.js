@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 
 function buildPath(relative) {
   return path.join(__dirname, relative);
@@ -6,7 +7,7 @@ function buildPath(relative) {
 
 module.exports = function(env) {
 
-  const isProduction = (env.production === true);
+  const isProduction = (env.production === true );
 
   return {
     entry: './src/app.js',
@@ -20,14 +21,19 @@ module.exports = function(env) {
         test: /\.js$/,
         exclude: /node_modules/
       }, {
+        test: /\.s?css$/,
         use: [
-          'style-loader',
+          MiniCSSExtractPlugin.loader,
           'css-loader',
           'sass-loader'
-        ],
-        test: /\.s?css$/
+        ]
       }]
     },
+    plugins: [
+      new MiniCSSExtractPlugin({
+        filename: 'styles.css'
+      })
+    ],
     devtool: isProduction ? 'source-map' : 'eval-cheap-module-source-map',
     devServer: {
       static: {
