@@ -3,12 +3,22 @@ import Header from './Header';
 import Generate from './Generate';
 import Options from './Options';
 import AddOption from './AddOption';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Content() {
 
-  const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState('');
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem('options'));
+    console.log(stored);
+    if (stored) setOptions(stored);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('options', JSON.stringify(options));
+  });
 
   const resetOptions = () => {
     setOptions([]);

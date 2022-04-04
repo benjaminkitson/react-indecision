@@ -2,6 +2,7 @@ import React from 'react';
 import Option from './Option';
 
 function Options(props) {
+
   return (
     <div>
       <div className="options-list">
