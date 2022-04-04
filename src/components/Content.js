@@ -4,6 +4,7 @@ import Generate from './Generate';
 import Options from './Options';
 import AddOption from './AddOption';
 import { useState, useEffect } from 'react';
+import RandomContext from '../contexts/random';
 
 function Content() {
 
@@ -46,14 +47,25 @@ function Content() {
     setSelected(options[num]);
   };
 
+  const utils = {
+    options,
+    selected,
+    resetOptions,
+    addOption,
+    deleteOption,
+    generate
+  };
+
   return (
-    <div className="content">
-      <Header />
-      <Options options={options} resetOptions={resetOptions} deleteOption={deleteOption} />
-      <AddOption options={options} addOption={addOption} />
-      <h1 className="selection">{selected}</h1>
-      <Generate hasOptions={options.length > 0} generate={generate} />
-    </div>
+    <RandomContext.Provider value={utils}>
+      <div className="content">
+        <Header />
+        <Options options={options} resetOptions={resetOptions} deleteOption={deleteOption} />
+        <AddOption options={options} addOption={addOption} />
+        <h1 className="selection">{selected}</h1>
+        <Generate hasOptions={options.length > 0} generate={generate} />
+      </div>
+    </RandomContext.Provider>
   );
 }
 

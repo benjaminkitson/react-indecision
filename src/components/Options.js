@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Option from './Option';
+import RandomContext from '../contexts/random';
 
-function Options(props) {
+function Options() {
+
+  const { options, resetOptions } = useContext(RandomContext);
 
   return (
     <div>
       <div className="options-list">
         <ol>
-          {props.options.map(option => <Option key={option} option={option} deleteOption={props.deleteOption} />)}
+          {options.map(option => <Option key={option} option={option} />)}
         </ol>
       </div>
-      <button className="reset-button button" onClick={props.resetOptions}>Reset</button>
+      <button className="reset-button button" onClick={resetOptions}>Reset</button>
     </div>
   );
 }
