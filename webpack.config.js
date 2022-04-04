@@ -6,7 +6,7 @@ function buildPath(relative) {
 
 module.exports = function(env) {
 
-  const isProduction = (env === 'production');
+  const isProduction = (env.production === true);
 
   return {
     entry: './src/app.js',
