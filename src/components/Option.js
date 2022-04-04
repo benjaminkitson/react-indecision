@@ -1,14 +1,14 @@
 import React from 'react';
 
-export default class Option extends React.Component {
+function Option(props) {
 
-  deleteOption = () => {
-    this.props.deleteOption(this.props.option);
+  const deleteOption = () => {
+    props.deleteOption(props.option);
   };
 
-  render() {
-    return (
-      <li className="option">{this.props.option}<button className="button delete--button" onClick={this.deleteOption}>✕</button></li>
-    );
-  }
+  return (
+    <li className="option">{props.option}<button className="button delete--button" onClick={deleteOption}>✕</button></li>
+  );
 }
+
+export default Option;
