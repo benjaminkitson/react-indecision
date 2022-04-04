@@ -1,11 +1,11 @@
 import React from 'react';
 
-function AddOption() {
+function AddOption(props) {
 
   const addOption = (e) => {
     e.preventDefault();
     const option = e.target.option.value.trim();
-    this.props.addOption(option);
+    props.addOption(option);
     e.target.option.value = '';
   };
 
