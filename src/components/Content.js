@@ -38,9 +38,9 @@ function Content() {
     setOptions(options.filter(item => item !== option));
   };
 
-  const clearGenerated = () => {
-    setSelected('Nothing yet.');
-  };
+  // const clearGenerated = () => {
+  //   setSelected('Nothing yet.');
+  // };
 
   const generate = () => {
     const num = Math.floor(Math.random() * options.length);
