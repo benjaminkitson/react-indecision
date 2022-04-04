@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import RandomContext from '../contexts/random';
 
-function Generate(props) {
+function Generate() {
+
+  const { generate, hasOptions } = useContext(RandomContext);
 
   return (
     <div>
-      <button className="button button--generate" onClick={props.generate} disabled={!props.hasOptions}>GENERATE</button>
+      <button className="button button--generate" onClick={generate} disabled={!hasOptions}>GENERATE</button>
     </div>
   );
 }

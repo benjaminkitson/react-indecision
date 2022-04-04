@@ -53,7 +53,8 @@ function Content() {
     resetOptions,
     addOption,
     deleteOption,
-    generate
+    generate,
+    hasOptions: options.length > 0
   };
 
   return (
