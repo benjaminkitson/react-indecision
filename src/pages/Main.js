@@ -52,7 +52,7 @@ export default function Main() {
 
     return (
         <RandomContext.Provider value={utils}>
-            <div className="content">
+            <div className="container h-screen max-h-screen">
                 <Header />
                 <Options
                     options={options}
