@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import Option from "./atoms/Option";
-import RandomContext from "../contexts/random";
+import Option from "../atoms/Option";
+import RandomContext from "../../contexts/random";
 
-function Options() {
-    const { options, resetOptions } = useContext(RandomContext);
-
+export default function Options({ options, resetOptions }) {
     return (
-        <div>
-            <div className="options-list">
+        <>
+            <div className="flex flex-col items-center justify-center p-10">
                 <ol>
                     {options.map((option) => (
                         <Option key={option} option={option} />
@@ -17,8 +15,6 @@ function Options() {
             <button className="reset-button button" onClick={resetOptions}>
                 Reset
             </button>
-        </div>
+        </>
     );
 }
-
-export default Options;

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Generate from "../components/atoms/Generate";
-import Options from "../components/atoms/Option";
+import Options from "../components/molecules/Options";
 import AddOption from "../components/atoms/AddOption";
 import { useState, useEffect } from "react";
 import RandomContext from "../contexts/random";
@@ -54,11 +54,7 @@ export default function Main() {
         <RandomContext.Provider value={utils}>
             <div className="container h-screen max-h-screen">
                 <Header />
-                <Options
-                    options={options}
-                    resetOptions={resetOptions}
-                    deleteOption={deleteOption}
-                />
+                <Options options={options} resetOptions={resetOptions} />
                 <AddOption options={options} addOption={addOption} />
                 <h1 className="selection">{selected}</h1>
                 <Generate hasOptions={options.length > 0} generate={generate} />
