@@ -1,12 +1,12 @@
 import React from "react";
-import Header from "./Header";
-import Generate from "./Generate";
-import Options from "./Options";
-import AddOption from "./AddOption";
+import Header from "../components/Header";
+import Generate from "../components/atoms/Generate";
+import Options from "../components/atoms/Option";
+import AddOption from "../components/atoms/AddOption";
 import { useState, useEffect } from "react";
 import RandomContext from "../contexts/random";
 
-function Content() {
+export default function Main() {
     const [selected, setSelected] = useState("");
     const [options, setOptions] = useState([]);
 
@@ -72,5 +72,3 @@ function Content() {
         </RandomContext.Provider>
     );
 }
-
-export default Content;

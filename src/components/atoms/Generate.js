@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import RandomContext from "../contexts/random";
+import RandomContext from "../../contexts/random";
 
 function Generate() {
     const { generate, hasOptions } = useContext(RandomContext);

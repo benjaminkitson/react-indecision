@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Option from "./Option";
-import RandomContext from "../contexts/random";
+import Option from "../atoms/Option";
+import RandomContext from "../../contexts/random";
 
 function Options() {
     const { options, resetOptions } = useContext(RandomContext);
