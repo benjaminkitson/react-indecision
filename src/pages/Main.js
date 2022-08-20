@@ -47,13 +47,7 @@ export default function Main() {
     };
 
     const utils = {
-        options,
-        selected,
-        resetOptions,
-        addOption,
         deleteOption,
-        generate,
-        hasOptions: options.length > 0,
     };
 
     return (

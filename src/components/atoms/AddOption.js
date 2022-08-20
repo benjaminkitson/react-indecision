@@ -1,15 +1,15 @@
 import React from "react";
 
-function AddOption(props) {
-    const addOption = (e) => {
+function AddOption({ addOption }) {
+    const add = (e) => {
         e.preventDefault();
         const option = e.target.option.value.trim();
-        props.addOption(option);
+        addOption(option);
         e.target.option.value = "";
     };
 
     return (
-        <form onSubmit={addOption} className="add-option">
+        <form onSubmit={add} className="add-option">
             <input
                 className="add-option__input"
                 type="text"
