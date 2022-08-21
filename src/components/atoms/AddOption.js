@@ -10,13 +10,15 @@ function AddOption({ addOption }) {
 
     return (
         <>
-            <form onSubmit={add} className="flex flex-col">
+            <form onSubmit={add} className="mb-5 flex items-center">
                 <input
-                    className="mb-5"
+                    className="mr-5 h-10 w-80 p-2"
                     type="text"
                     name="option"
                 ></input>
-                <button className="button">Add</button>
+                <button className="h-12 w-32 rounded-md bg-blue-800 text-2xl text-white">
+                    Add
+                </button>
             </form>
         </>
     );
