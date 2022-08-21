@@ -6,15 +6,15 @@ function Option({ option }) {
 
     return (
         <li className="flex h-10 w-2/3 justify-center">
-            <div className="mr-4 flex h-full w-2/3 items-center rounded-md bg-white pl-4">
+            <div className="group mr-4 flex h-full w-2/3 items-center justify-between rounded-md bg-white px-4">
                 {option}
+                <button
+                    className="hidden h-6 w-6 rounded-md bg-blue-800 group-hover:block"
+                    onClick={() => deleteOption(option)}
+                >
+                    ✕
+                </button>
             </div>
-            <button
-                className="h-full w-10 rounded-md bg-blue-800"
-                onClick={() => deleteOption(option)}
-            >
-                ✕
-            </button>
         </li>
     );
 }
