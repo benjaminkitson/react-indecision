@@ -52,12 +52,17 @@ export default function Main() {
 
     return (
         <RandomContext.Provider value={utils}>
-            <div className="container h-screen max-h-screen">
+            <div className="container flex h-screen max-h-screen flex-col justify-between">
                 <Header />
                 <Options options={options} resetOptions={resetOptions} />
-                <AddOption options={options} addOption={addOption} />
-                <h1 className="selection">{selected}</h1>
-                <Generate hasOptions={options.length > 0} generate={generate} />
+                <div className="flex h-72 w-full flex-col items-center justify-center bg-blue-600 p-5">
+                    <AddOption options={options} addOption={addOption} />
+                    <h1 className="selection">{selected}</h1>
+                    <Generate
+                        hasOptions={options.length > 0}
+                        generate={generate}
+                    />
+                </div>
             </div>
         </RandomContext.Provider>
     );

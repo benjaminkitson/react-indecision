@@ -4,7 +4,7 @@ import RandomContext from "../../contexts/random";
 
 export default function Options({ options, resetOptions }) {
     return (
-        <div className="flex h-[700px] w-full flex-col items-center justify-center bg-blue-400">
+        <div className="flex w-full flex-grow flex-col items-center justify-center bg-blue-400">
             <div className="mb-5 flex h-[500px] w-5/6 flex-col items-center justify-center bg-blue-500 p-10">
                 <ol>
                     {options.map((option) => (

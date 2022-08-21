@@ -7,7 +7,7 @@ function Generate() {
     return (
         <div>
             <button
-                className="button button--generate"
+                className="m-3 h-20 w-80 rounded-md bg-blue-800 text-5xl text-white"
                 onClick={generate}
                 disabled={!hasOptions}
             >

@@ -9,14 +9,16 @@ function AddOption({ addOption }) {
     };
 
     return (
-        <form onSubmit={add} className="add-option">
-            <input
-                className="add-option__input"
-                type="text"
-                name="option"
-            ></input>
-            <button className="button">Add</button>
-        </form>
+        <>
+            <form onSubmit={add} className="flex flex-col">
+                <input
+                    className="mb-5"
+                    type="text"
+                    name="option"
+                ></input>
+                <button className="button">Add</button>
+            </form>
+        </>
     );
 }
 
