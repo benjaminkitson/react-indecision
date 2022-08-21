@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import Option from "../atoms/Option";
-import RandomContext from "../../contexts/random";
 
 export default function Options({ options, resetOptions }) {
     return (
         <div className="flex w-full flex-grow flex-col items-center justify-center bg-blue-400">
             <div className="mb-5 flex h-[500px] w-5/6 flex-col items-center justify-center bg-blue-500 p-10">
-                <ol>
+                <ol className="flex w-full justify-center">
                     {options.map((option) => (
                         <Option key={option} option={option} />
                     ))}
