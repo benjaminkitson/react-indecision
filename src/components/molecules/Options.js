@@ -3,8 +3,8 @@ import Option from "../atoms/Option";
 
 export default function Options({ options, resetOptions, selected }) {
     return (
-        <div className="flex w-full flex-grow flex-col items-center justify-center bg-blue-400">
-            <div className="mb-5 flex h-[500px] w-5/6 flex-col items-center justify-center bg-blue-500 p-10">
+        <div className="flex w-full flex-grow flex-col items-center justify-between bg-blue-500 p-10">
+            <div className="mb-5 flex h-[500px] w-5/6 flex-col items-center justify-center rounded-xl bg-blue-400 p-10">
                 <ol className="flex w-full justify-center">
                     {options.map((option) => (
                         <Option key={option} option={option} />
@@ -17,7 +17,11 @@ export default function Options({ options, resetOptions, selected }) {
             >
                 Reset
             </button>
-            <div className="h-10">{selected && <h1>{selected}</h1>}</div>
+            <div className="h-20">
+                {selected && (
+                    <h1 className="text-4xl text-white">{selected}</h1>
+                )}
+            </div>
         </div>
     );
 }
