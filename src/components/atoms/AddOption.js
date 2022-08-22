@@ -12,7 +12,7 @@ function AddOption({ addOption }) {
         <>
             <form onSubmit={add} className="mb-5 flex items-center">
                 <input
-                    className="mr-5 h-10 w-80 p-2"
+                    className="mr-5 h-10 w-80 rounded-md p-2"
                     type="text"
                     name="option"
                 ></input>
