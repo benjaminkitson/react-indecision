@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
-import RandomContext from "../../contexts/random";
+import React from "react";
 
-function Generate() {
-    const { generate, hasOptions } = useContext(RandomContext);
-
+function Generate({ generate, hasOptions }) {
     return (
         <div>
             <button
-                className="m-3 h-20 w-80 rounded-md bg-blue-800 text-5xl text-white"
+                className="m-3 h-20 w-80 cursor-pointer rounded-md bg-blue-800 text-5xl text-white"
                 onClick={generate}
                 disabled={!hasOptions}
             >
