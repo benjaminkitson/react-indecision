@@ -5,7 +5,7 @@ export default function Options({ options, resetOptions, selected }) {
     return (
         <div className="flex w-full flex-grow flex-col items-center justify-between bg-blue-500 p-10">
             <div className="mb-5 flex h-[500px] w-5/6 flex-col items-center justify-center rounded-xl bg-blue-400 p-10">
-                <ol className="flex w-full flex-col items-center justify-center">
+                <ol className="flex h-full w-full flex-col items-center">
                     {options.map((option) => (
                         <Option key={option} option={option} />
                     ))}
