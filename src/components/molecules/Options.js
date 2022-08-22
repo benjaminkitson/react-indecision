@@ -1,7 +1,7 @@
 import React from "react";
 import Option from "../atoms/Option";
 
-export default function Options({ options, resetOptions }) {
+export default function Options({ options, resetOptions, selected }) {
     return (
         <div className="flex w-full flex-grow flex-col items-center justify-center bg-blue-400">
             <div className="mb-5 flex h-[500px] w-5/6 flex-col items-center justify-center bg-blue-500 p-10">
@@ -17,6 +17,7 @@ export default function Options({ options, resetOptions }) {
             >
                 Reset
             </button>
+            <div className="h-10">{selected && <h1>{selected}</h1>}</div>
         </div>
     );
 }
