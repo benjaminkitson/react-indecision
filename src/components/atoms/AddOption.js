@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 function AddOption({ addOption }) {
     const add = (e) => {
@@ -16,9 +17,9 @@ function AddOption({ addOption }) {
                     type="text"
                     name="option"
                 ></input>
-                <button className="h-12 w-32 rounded-md bg-blue-800 text-2xl text-white">
+                <Button className="h-12 w-32 text-2xl text-white" colour="blue">
                     Add
-                </button>
+                </Button>
             </form>
         </>
     );

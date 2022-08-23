@@ -59,7 +59,7 @@ export default function Main() {
                     resetOptions={resetOptions}
                     selected={selected}
                 />
-                <div className="flex h-72 w-full flex-col items-center justify-center bg-blue-600 p-5">
+                <div className="flex h-72 w-full flex-col items-center justify-center bg-blue-500 p-5">
                     <AddOption options={options} addOption={addOption} />
                     <Generate
                         hasOptions={options.length > 0}
