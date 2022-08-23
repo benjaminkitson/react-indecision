@@ -1,5 +1,6 @@
 import React from "react";
 import Option from "../atoms/Option";
+import Button from "../atoms/Button";
 
 export default function Options({ options, resetOptions, selected }) {
     return (
@@ -11,12 +12,9 @@ export default function Options({ options, resetOptions, selected }) {
                     ))}
                 </ol>
             </div>
-            <button
-                className="w-32 rounded-md bg-blue-800 p-4 text-xl text-white"
-                onClick={resetOptions}
-            >
+            <Button className="w-32 p-4 text-xl text-white" colour="blue">
                 Reset
-            </button>
+            </Button>
             <div className="flex h-20 items-end justify-center">
                 {selected && (
                     <h1 className="text-4xl text-white">{selected}</h1>
