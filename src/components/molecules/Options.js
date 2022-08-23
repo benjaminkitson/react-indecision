@@ -4,7 +4,7 @@ import Button from "../atoms/Button";
 
 export default function Options({ options, resetOptions, selected }) {
     return (
-        <div className="flex w-full flex-grow flex-col items-center justify-between bg-white p-10">
+        <div className="flex w-full flex-grow flex-col items-center justify-between bg-black p-10">
             <div className="mb-5 flex w-5/6 flex-grow flex-col items-center justify-center rounded-xl bg-blue-400 bg-opacity-50 p-10">
                 <ol className="flex h-full w-full flex-col items-center">
                     {options.map((option) => (
@@ -12,7 +12,11 @@ export default function Options({ options, resetOptions, selected }) {
                     ))}
                 </ol>
             </div>
-            <Button className="w-32 p-4 text-xl text-white" colour="blue">
+            <Button
+                className="w-32 p-4 text-xl text-white"
+                colour="blue"
+                onClick={resetOptions}
+            >
                 Reset
             </Button>
             <div className="flex h-20 items-end justify-center">

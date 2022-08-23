@@ -1,15 +1,17 @@
 import React from "react";
+import Button from "./Button";
 
 function Generate({ generate, hasOptions }) {
     return (
         <div>
-            <button
-                className="m-3 h-20 w-80 cursor-pointer rounded-md bg-blue-800 text-5xl text-white"
+            <Button
                 onClick={generate}
+                className="m-3 h-20 w-80 text-5xl text-white"
+                colour="blue"
                 disabled={!hasOptions}
             >
                 GENERATE
-            </button>
+            </Button>
         </div>
     );
 }
