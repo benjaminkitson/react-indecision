@@ -52,7 +52,7 @@ export default function Main() {
 
     return (
         <RandomContext.Provider value={utils}>
-            <div className="container flex h-screen max-h-screen flex-col justify-between">
+            <div className="flex max-h-screen w-full flex-col justify-between">
                 <Header />
                 <Options
                     options={options}

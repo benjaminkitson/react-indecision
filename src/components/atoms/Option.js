@@ -15,6 +15,12 @@ function Option({ option }) {
                 >
                     <GrClose />
                 </button>
+                <button
+                    className="hidden h-6 w-6 items-center justify-center rounded-md bg-blue-600 hover:bg-blue-700 active:bg-blue-800 group-hover:flex"
+                    onClick={() => deleteOption(option)}
+                >
+                    <GrClose />
+                </button>
             </div>
         </li>
     );
