@@ -17,7 +17,7 @@ export default function Options({ options, resetOptions, selected }) {
             >
                 Reset
             </button>
-            <div className="h-20">
+            <div className="flex h-20 items-end justify-center">
                 {selected && (
                     <h1 className="text-4xl text-white">{selected}</h1>
                 )}
