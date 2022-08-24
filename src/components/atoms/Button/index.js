@@ -13,7 +13,7 @@ export default function Button({
         groupHidden ? "hidden group-hover:flex" : "flex"
     } items-center justify-center rounded-md`;
 
-    const colourClass = getColourClass(colour);
+    const colourClass = disabled ? "bg-gray-400" : getColourClass(colour);
 
     return (
         <button

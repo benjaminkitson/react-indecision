@@ -14,7 +14,7 @@ export default function AddOption() {
 
     return (
         <>
-            <form onSubmit={add} className="mb-5 flex items-center">
+            <form onSubmit={(e) => add(e)} className="mb-5 flex items-center">
                 <input
                     className="mr-5 h-10 w-80 rounded-md p-2"
                     type="text"

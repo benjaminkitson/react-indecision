@@ -19,7 +19,6 @@ function Option({ option, index }) {
     };
 
     const destroy = (e, index) => {
-        console.log(e);
         e.preventDefault();
         deleteOption(index);
     };
