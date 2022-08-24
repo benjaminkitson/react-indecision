@@ -33,8 +33,19 @@ export default function Main() {
         }
     };
 
-    const deleteOption = (option) => {
-        setOptions(options.filter((item) => item !== option));
+    const deleteOption = (index) => {
+        setOptions(options.filter((_item, i) => i !== index));
+    };
+
+    const editOption = (option, index) => {
+        const newOptions = options.map((oldOption, i) => {
+            if (index === i) {
+                return option;
+            } else {
+                return oldOption;
+            }
+        });
+        setOptions(newOptions);
     };
 
     // const clearGenerated = () => {
@@ -48,6 +59,7 @@ export default function Main() {
 
     const utils = {
         deleteOption,
+        editOption,
     };
 
     return (
@@ -57,6 +69,7 @@ export default function Main() {
                 <Options
                     options={options}
                     resetOptions={resetOptions}
+                    editOption={editOption}
                     selected={selected}
                 />
                 <div className="flex h-72 w-full flex-col items-center justify-center bg-blue-500 p-5">

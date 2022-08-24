@@ -17,11 +17,7 @@ function AddOption({ addOption }) {
                     type="text"
                     name="option"
                 ></input>
-                <Button
-                    className="h-12 w-32 text-2xl text-white"
-                    colour="blue"
-                    onClick={(e) => add(e)}
-                >
+                <Button className="h-12 w-32 text-2xl text-white" colour="blue">
                     Add
                 </Button>
             </form>

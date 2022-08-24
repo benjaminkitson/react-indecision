@@ -3,12 +3,13 @@ import Option from "../atoms/Option";
 import Button from "../atoms/Button";
 
 export default function Options({ options, resetOptions, selected }) {
+
     return (
         <div className="flex w-full flex-grow flex-col items-center justify-between bg-black p-10">
             <div className="mb-5 flex w-5/6 flex-grow flex-col items-center justify-center rounded-xl bg-blue-400 bg-opacity-50 p-10">
                 <ol className="flex h-full w-full flex-col items-center">
-                    {options.map((option) => (
-                        <Option key={option} option={option} />
+                    {options.map((option, index) => (
+                        <Option key={index} option={option} index={index}/>
                     ))}
                 </ol>
             </div>

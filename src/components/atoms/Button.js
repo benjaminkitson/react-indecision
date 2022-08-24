@@ -1,6 +1,13 @@
 import React from "react";
 
-export default function Button({ children, className, colour, groupHidden, disabled, onClick }) {
+export default function Button({
+    children,
+    className,
+    colour,
+    groupHidden,
+    disabled,
+    onClick,
+}) {
     const defaultClasses = `${
         groupHidden ? "hidden group-hover:flex" : "flex"
     } items-center justify-center rounded-md`;
@@ -21,7 +28,11 @@ export default function Button({ children, className, colour, groupHidden, disab
     return (
         <button
             className={`${defaultClasses} ${colourClass} ${className}`}
-            onClick={() => onClick()}
+            onClick={(e) => {
+                if (onClick) {
+                    onClick(e);
+                }
+            }}
             disabled={disabled}
         >
             {children}
