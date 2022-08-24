@@ -60,6 +60,7 @@ export default function Main() {
     const utils = {
         deleteOption,
         editOption,
+        addOption,
     };
 
     return (
@@ -73,7 +74,7 @@ export default function Main() {
                     selected={selected}
                 />
                 <div className="flex h-72 w-full flex-col items-center justify-center bg-blue-500 p-5">
-                    <AddOption options={options} addOption={addOption} />
+                    <AddOption options={options} />
                     <Generate
                         hasOptions={options.length > 0}
                         generate={generate}
@@ -83,3 +84,4 @@ export default function Main() {
         </RandomContext.Provider>
     );
 }
+

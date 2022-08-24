@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import RandomContext from "../../contexts/random";
+import RandomContext from "../../../contexts/random";
 import { GrClose, GrEdit } from "react-icons/gr";
 
-import Button from "./Button";
+import Button from "../Button";
 
 function Option({ option, index }) {
     const { deleteOption, editOption } = useContext(RandomContext);

@@ -1,7 +1,10 @@
-import React from "react";
-import Button from "./Button";
+import React, { useContext } from "react";
+import RandomContext from "../../../contexts/random";
+import Button from "../Button";
 
-function AddOption({ addOption }) {
+export default function AddOption() {
+    const { addOption } = useContext(RandomContext);
+
     const add = (e) => {
         e.preventDefault();
         const option = e.target.option.value.trim();
@@ -24,5 +27,3 @@ function AddOption({ addOption }) {
         </>
     );
 }
-
-export default AddOption;

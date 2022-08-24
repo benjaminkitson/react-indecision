@@ -1,6 +1,6 @@
 import React from "react";
-import Option from "../atoms/Option";
-import Button from "../atoms/Button";
+import Option from "../../atoms/Option";
+import Button from "../../atoms/Button";
 
 export default function Options({ options, resetOptions, selected }) {
     return (
