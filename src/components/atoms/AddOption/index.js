@@ -16,11 +16,14 @@ export default function AddOption() {
         <>
             <form onSubmit={(e) => add(e)} className="mb-5 flex items-center">
                 <input
-                    className="mr-5 h-10 w-80 rounded-md p-2"
+                    className="h-10 w-80 rounded-md p-2"
                     type="text"
                     name="option"
                 ></input>
-                <Button className="h-12 w-32 text-2xl text-white" colour="blue">
+                <Button
+                    className="mx-5 h-12 w-32 text-2xl text-white"
+                    colour="blue"
+                >
                     Add
                 </Button>
             </form>
