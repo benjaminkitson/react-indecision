@@ -11,11 +11,19 @@ function Option({ option, index }) {
 
     const [toUpdate, setToUpdate] = useState(option);
 
+    const [isInvalid, setIsInvalid] = useState(false);
+
     const edit = (e, index) => {
         e.preventDefault();
         const option = toUpdate.trim();
-        editOption(option, index);
-        setIsEditing(false);
+        if (option.length < 1) {
+            console.log("hello");
+            setIsInvalid(true);
+        } else {
+            setIsInvalid(false);
+            editOption(option, index);
+            setIsEditing(false);
+        }
     };
 
     const destroy = (e, index) => {
@@ -28,11 +36,15 @@ function Option({ option, index }) {
             <div className="group mr-4 h-full w-2/3 rounded-md bg-white">
                 {isEditing ? (
                     <form
-                        className={"h-full w-full rounded-md"}
+                        className="h-full w-full rounded-md"
                         onSubmit={(e) => edit(e, index)}
                     >
                         <input
-                            className={"h-full w-full rounded-md px-4"}
+                            className={`h-full w-full rounded-md px-4 ${
+                                isInvalid
+                                    ? "outline-red-600 focus:outline-red-600"
+                                    : "focus:outline-blue-700"
+                            }`}
                             type="text"
                             name="option"
                             value={toUpdate}

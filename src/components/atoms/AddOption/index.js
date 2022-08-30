@@ -5,12 +5,12 @@ import Button from "../Button";
 export default function AddOption() {
     const { addOption } = useContext(RandomContext);
 
-    const [toAdd, setToAdd] = useState("";)
+    const [toAdd, setToAdd] = useState("");
 
     const add = (e) => {
         e.preventDefault();
         addOption(toAdd);
-       setToAdd("")
+        setToAdd("");
     };
 
     return (
