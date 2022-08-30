@@ -13,7 +13,7 @@ function Option({ option, index }) {
 
     const edit = (e, index) => {
         e.preventDefault();
-        const option = e.target.option.value.trim();
+        const option = toUpdate.trim();
         editOption(option, index);
         setIsEditing(false);
     };
