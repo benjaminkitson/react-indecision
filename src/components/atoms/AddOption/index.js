@@ -37,7 +37,7 @@ export default function AddOption() {
                     value={toAdd}
                     onChange={(e) => handleChange(e)}
                     isInvalid={isInvalid}
-                ></TextInput>
+                />
                 <Button
                     className="mx-5 h-12 w-32 text-2xl text-white"
                     colour="blue"

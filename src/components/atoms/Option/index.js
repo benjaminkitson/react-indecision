@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import RandomContext from "../../../contexts/random";
 import { GrClose, GrEdit } from "react-icons/gr";
+import TextInput from "../TextInput";
 
 import Button from "../Button";
 
@@ -38,17 +39,12 @@ function Option({ option, index }) {
                     onSubmit={(e) => edit(e, index)}
                 >
                     {isEditing ? (
-                        <input
-                            className={`h-full w-full rounded-md px-4 ${
-                                isInvalid
-                                    ? "outline-red-600 focus:outline-red-600"
-                                    : "focus:outline-blue-700"
-                            }`}
-                            type="text"
+                        <TextInput
+                            className="h-full w-full rounded-md px-4"
                             name="option"
                             value={toUpdate}
                             onChange={(e) => setToUpdate(e.target.value)}
-                        ></input>
+                        />
                     ) : (
                         // Change this to disabled input
                         <p className="flex h-full w-full items-center rounded-md px-4">
