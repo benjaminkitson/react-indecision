@@ -44,6 +44,7 @@ function Option({ option, index }) {
                             name="option"
                             value={toUpdate}
                             onChange={(e) => setToUpdate(e.target.value)}
+                            isInvalid={isInvalid}
                         />
                     ) : (
                         // Change this to disabled input
