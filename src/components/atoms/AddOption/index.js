@@ -1,28 +1,43 @@
 import React, { useContext, useState } from "react";
 import RandomContext from "../../../contexts/random";
 import Button from "../Button";
+import TextInput from "../TextInput";
 
 export default function AddOption() {
     const { addOption } = useContext(RandomContext);
 
     const [toAdd, setToAdd] = useState("");
+    const [isInvalid, setIsInvalid] = useState(false);
+
+    const handleChange = (e) => {
+        e.preventDefault();
+        if (isInvalid) {
+            setIsInvalid(false);
+        }
+        const { value } = e.target;
+        setToAdd(value);
+    };
 
     const add = (e) => {
         e.preventDefault();
-        addOption(toAdd);
+        if (!toAdd.length) {
+            setIsInvalid(true);
+        } else {
+            addOption(toAdd);
+        }
         setToAdd("");
     };
 
     return (
         <>
             <form onSubmit={(e) => add(e)} className="mb-5 flex items-center">
-                <input
+                <TextInput
                     className="h-10 w-80 rounded-md p-2"
-                    type="text"
                     name="option"
                     value={toAdd}
-                    onChange={(e) => setToAdd(e.target.value)}
-                ></input>
+                    onChange={(e) => handleChange(e)}
+                    isInvalid={isInvalid}
+                ></TextInput>
                 <Button
                     className="mx-5 h-12 w-32 text-2xl text-white"
                     colour="blue"

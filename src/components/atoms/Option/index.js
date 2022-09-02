@@ -17,7 +17,6 @@ function Option({ option, index }) {
         e.preventDefault();
         const option = toUpdate.trim();
         if (option.length < 1) {
-            console.log("hello");
             setIsInvalid(true);
         } else {
             setIsInvalid(false);
@@ -33,12 +32,12 @@ function Option({ option, index }) {
 
     return (
         <li className="mb-3 flex h-10 w-2/3 justify-center">
-            <div className="group mr-4 h-full w-2/3 rounded-md bg-white">
-                {isEditing ? (
-                    <form
-                        className="h-full w-full rounded-md"
-                        onSubmit={(e) => edit(e, index)}
-                    >
+            <div className="group h-full w-2/3 rounded-md bg-white">
+                <form
+                    className="relative h-full w-full rounded-md"
+                    onSubmit={(e) => edit(e, index)}
+                >
+                    {isEditing ? (
                         <input
                             className={`h-full w-full rounded-md px-4 ${
                                 isInvalid
@@ -50,17 +49,19 @@ function Option({ option, index }) {
                             value={toUpdate}
                             onChange={(e) => setToUpdate(e.target.value)}
                         ></input>
-                    </form> // input will go here
-                ) : (
-                    <>
-                        <div className="flex h-full w-full items-center justify-between rounded-md px-4">
-                            <span>{option}</span>
-                            <div className="flex">
+                    ) : (
+                        // Change this to disabled input
+                        <p className="flex h-full w-full items-center rounded-md px-4">
+                            {option}
+                            <div className="absolute right-0 top-0 z-10 mr-4 flex h-full w-1/4 items-center justify-center">
                                 <Button
                                     className="h-6 w-6"
                                     colour="blue"
                                     groupHidden
-                                    onClick={() => setIsEditing(true)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setIsEditing(true);
+                                    }}
                                 >
                                     <GrEdit />
                                 </Button>
@@ -68,14 +69,17 @@ function Option({ option, index }) {
                                     className="ml-3 h-6 w-6"
                                     colour="grey"
                                     groupHidden
-                                    onClick={(e) => destroy(e, index)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        destroy(e, index);
+                                    }}
                                 >
                                     <GrClose />
                                 </Button>
                             </div>
-                        </div>
-                    </>
-                )}
+                        </p>
+                    )}
+                </form>
             </div>
         </li>
     );
