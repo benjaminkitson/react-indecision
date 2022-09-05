@@ -65,20 +65,14 @@ export default function Main() {
 
     return (
         <MainContext.Provider value={utils}>
-            <div className="flex h-screen max-h-screen w-full flex-col justify-between">
-                <Header />
-                <Options
-                    options={options}
-                    resetOptions={resetOptions}
-                    editOption={editOption}
-                    selected={selected}
-                />
-                <div className="flex h-40 w-full flex-col items-center justify-center bg-blue-500 p-5">
-                    <Generate
-                        hasOptions={options.length > 0}
-                        generate={generate}
-                    />
-                </div>
+            <Options
+                options={options}
+                resetOptions={resetOptions}
+                editOption={editOption}
+                selected={selected}
+            />
+            <div className="flex h-40 w-full flex-col items-center justify-center bg-blue-500 p-5">
+                <Generate hasOptions={options.length > 0} generate={generate} />
             </div>
         </MainContext.Provider>
     );
