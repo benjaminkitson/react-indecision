@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import RandomContext from "../../../contexts/random";
+import RandomContext from "../../../contexts/Random";
 import Button from "../Button";
 import TextInput from "../TextInput";
 
@@ -32,7 +32,6 @@ export default function AddOption() {
         <>
             <form onSubmit={(e) => add(e)} className="mb-5 flex items-center">
                 <TextInput
-                    className="h-10 w-80 rounded-md p-2"
                     name="option"
                     value={toAdd}
                     onChange={(e) => handleChange(e)}

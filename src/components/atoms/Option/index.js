@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import RandomContext from "../../../contexts/random";
+import RandomContext from "../../../contexts/Random";
 import { GrClose, GrEdit } from "react-icons/gr";
 import TextInput from "../TextInput";
 
@@ -17,7 +17,7 @@ function Option({ option, index }) {
     const edit = (e, index) => {
         e.preventDefault();
         const option = toUpdate.trim();
-        if (option.length < 1) {
+        if (!option.length) {
             setIsInvalid(true);
         } else {
             setIsInvalid(false);
@@ -40,7 +40,6 @@ function Option({ option, index }) {
                 >
                     {isEditing ? (
                         <TextInput
-                            className="h-full w-full rounded-md px-4"
                             name="option"
                             value={toUpdate}
                             onChange={(e) => setToUpdate(e.target.value)}

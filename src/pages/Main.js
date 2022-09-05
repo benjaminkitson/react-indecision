@@ -4,7 +4,7 @@ import Generate from "../components/atoms/Generate";
 import Options from "../components/molecules/Options";
 import AddOption from "../components/atoms/AddOption";
 import { useState, useEffect } from "react";
-import RandomContext from "../contexts/random";
+import MainContext from "../contexts/Random";
 
 export default function Main() {
     const [selected, setSelected] = useState("");
@@ -64,7 +64,7 @@ export default function Main() {
     };
 
     return (
-        <RandomContext.Provider value={utils}>
+        <MainContext.Provider value={utils}>
             <div className="flex h-screen max-h-screen w-full flex-col justify-between">
                 <Header />
                 <Options
@@ -80,7 +80,7 @@ export default function Main() {
                     />
                 </div>
             </div>
-        </RandomContext.Provider>
+        </MainContext.Provider>
     );
 }
 
