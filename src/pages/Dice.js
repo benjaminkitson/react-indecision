@@ -30,9 +30,20 @@ export default function Dice() {
 
     const [selection, setSelection] = useState(undefined);
 
+    const [isDisabled, setIsDisabled] = useState(false);
+
     const roll = () => {
-        const num = Math.floor(Math.random() * 6) + 1;
-        setSelection(num);
+        setIsDisabled(true);
+        let counter = 0;
+        const interval = setInterval(() => {
+            const num = Math.floor(Math.random() * 6) + 1;
+            setSelection(num);
+            counter++;
+            if (counter > 8) {
+                clearInterval(interval);
+                setIsDisabled(false);
+            }
+        }, 200);
     };
 
     const Dice = selection ? options[selection - 1] : BeforeRoll;
@@ -43,7 +54,7 @@ export default function Dice() {
                 <Dice />
             </div>
             <div className="flex h-40 w-full flex-col items-center justify-center bg-blue-500 p-5">
-                <RollDice roll={roll} />
+                <RollDice roll={roll} disabled={isDisabled}/>
             </div>
         </div>
     );
