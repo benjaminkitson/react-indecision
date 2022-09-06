@@ -10,7 +10,7 @@ const app = document.getElementById("app");
 function Random() {
     return (
         <Theme>
-            <Main />
+            <Dice />
         </Theme>
     );
 }
