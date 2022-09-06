@@ -2,8 +2,11 @@ import React from "react";
 import Option from "../../atoms/Option";
 import Button from "../../atoms/Button";
 import AddOption from "../../atoms/AddOption";
+import { useContext } from "react";
+import MainContext from "../../../contexts/Main";
 
-export default function Options({ options, resetOptions, selected }) {
+export default function Options() {
+    const { options, resetOptions, selected } = useContext(MainContext);
     return (
         <div className="flex w-full flex-grow flex-col items-center justify-between bg-black p-10">
             <div className="mb-5 flex w-5/6 flex-grow flex-col items-center justify-center rounded-xl bg-blue-400 bg-opacity-50 p-10">

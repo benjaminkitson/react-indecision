@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
-import RandomContext from "../../../contexts/Random";
+import MainContext from "../../../contexts/Main";
 import Button from "../Button";
 import TextInput from "../TextInput";
 
 export default function AddOption() {
-    const { addOption } = useContext(RandomContext);
+    const { addOption } = useContext(MainContext);
 
     const [toAdd, setToAdd] = useState("");
     const [isInvalid, setIsInvalid] = useState(false);

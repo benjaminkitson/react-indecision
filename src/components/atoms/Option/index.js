@@ -1,12 +1,12 @@
 import React, { useContext, useState } from "react";
-import RandomContext from "../../../contexts/Random";
+import MainContext from "../../../contexts/Main";
 import { GrClose, GrEdit } from "react-icons/gr";
 import TextInput from "../TextInput";
 
 import Button from "../Button";
 
 function Option({ option, index }) {
-    const { deleteOption, editOption } = useContext(RandomContext);
+    const { deleteOption, editOption } = useContext(MainContext);
 
     const [isEditing, setIsEditing] = useState(false);
 
