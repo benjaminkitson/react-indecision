@@ -4,7 +4,7 @@ import Button from "../Button";
 import RandomContext from "../../../contexts/Random";
 
 export default function Randomise() {
-    const { generate, number } = useContext(RandomContext);
+    const { generate, number, disabledButton } = useContext(RandomContext);
 
     return (
         <div>
@@ -12,7 +12,7 @@ export default function Randomise() {
                 onClick={generate}
                 className="m-3 h-20 w-80 text-5xl text-white"
                 colour="blue"
-                disabled={!number}
+                disabled={!number || disabledButton}
             >
                 GENERATE
             </Button>

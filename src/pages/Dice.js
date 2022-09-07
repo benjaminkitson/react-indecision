@@ -12,12 +12,12 @@ import {
 } from "react-icons/bs";
 
 export default function Dice() {
-    const { selectedIndex } = useContext(RandomContext);
+    const { selectedIndex, setDisabledButton } = useContext(RandomContext);
     const [display, setDisplay] = useState(selectedIndex);
 
     useEffect(() => {
         function tick(interval) {
-            if (!isDisabled) setIsDisabled(true);
+            if (!isDisabled) setDisabledButton(true);
             setTimeout(() => {
                 interval *= 1.3;
                 const num = Math.floor(Math.random() * 6);
@@ -26,11 +26,14 @@ export default function Dice() {
                     tick(interval);
                 } else {
                     setDisplay(selectedIndex);
-                    setIsDisabled(false);
+                    setDisabledButton(false);
                 }
             }, interval);
         }
-        tick(5);
+        if (selectedIndex) {
+            tick(5);
+        }
+        // ! Causes a bug where if selectedIndex doesn't change, the effect doesn't run
     }, [selectedIndex]);
 
     const options = [

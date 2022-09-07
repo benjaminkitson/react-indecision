@@ -7,6 +7,8 @@ export function RandomContextProvider({ children }) {
     // ! Testing dice
     const [number, setNumber] = useState(6);
 
+    const [disabledButton, setDisabledButton] = useState(false);
+
 
     const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -24,6 +26,8 @@ export function RandomContextProvider({ children }) {
         setSelectedIndex,
         number,
         setNumber,
+        setDisabledButton,
+        disabledButton,
     };
 
     return (
