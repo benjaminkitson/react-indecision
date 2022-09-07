@@ -1,29 +1,34 @@
 import Main from "../pages/Main";
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
+import RandomContext from "./Random";
 
 const MainContext = createContext();
 
 // const pages = ["Main", "Dice"];
 
 export function MainContextProvider({ children }) {
-    const [selected, setSelected] = useState("");
     const [options, setOptions] = useState([]);
+    const { setNumber, number, setSelectedIndex } = useContext(RandomContext);
 
     const resetOptions = () => {
+        setNumber(0);
+        setSelectedIndex(null);
         setOptions([]);
     };
 
     const addOption = (option) => {
         if (option && !options.includes(option)) {
+            setNumber(number + 1);
             setOptions(options.concat(option));
-            setSelected("Add some more stuff!");
+            // setSelected("Add some more stuff!");
         } else if (options.includes(option)) {
-            setSelected("No duplicates please!");
+            // setSelected("No duplicates please!");
         }
     };
 
     const deleteOption = (index) => {
         setOptions(options.filter((_item, i) => i !== index));
+        setNumber(number - 1);
     };
 
     const editOption = (option, index) => {
@@ -41,18 +46,12 @@ export function MainContextProvider({ children }) {
     //   setSelected('Nothing yet.');
     // };
 
-    const generate = () => {
-        const num = Math.floor(Math.random() * options.length);
-        setSelected(options[num]);
-    };
-
     const utils = {
         deleteOption,
         editOption,
         addOption,
-        generate,
         resetOptions,
-        selected,
+        // selected,
         options,
     };
 

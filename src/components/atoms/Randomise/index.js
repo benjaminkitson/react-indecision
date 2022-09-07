@@ -1,23 +1,21 @@
 import React from "react";
 import { useContext } from "react";
 import Button from "../Button";
-import MainContext from "../../../contexts/Main";
+import RandomContext from "../../../contexts/Random";
 
-function Generate() {
-    // const { generate, options } = useContext(MainContext);
-    // const hasOptions = !!options.length;
+export default function Randomise() {
+    const { generate, number } = useContext(RandomContext);
+
     return (
         <div>
             <Button
-                // onClick={generate}
+                onClick={generate}
                 className="m-3 h-20 w-80 text-5xl text-white"
                 colour="blue"
-                // disabled={!hasOptions}
+                disabled={!number}
             >
                 GENERATE
             </Button>
         </div>
     );
 }
-
-export default Generate;

@@ -4,9 +4,14 @@ import Button from "../../atoms/Button";
 import AddOption from "../../atoms/AddOption";
 import { useContext } from "react";
 import MainContext from "../../../contexts/Main";
+import RandomContext from "../../../contexts/Random";
 
 export default function Options() {
-    const { options, resetOptions, selected } = useContext(MainContext);
+    const { options, resetOptions } = useContext(MainContext);
+    const { selectedIndex } = useContext(RandomContext);
+
+    console.log(options, selectedIndex);
+
     return (
         <div className="flex w-full flex-grow flex-col items-center justify-between bg-black p-10">
             <div className="mb-5 flex w-5/6 flex-grow flex-col items-center justify-center rounded-xl bg-blue-400 bg-opacity-50 p-10">
@@ -17,8 +22,10 @@ export default function Options() {
                 </ol>
             </div>
             <div className="flex h-20 items-center justify-center">
-                {selected && (
-                    <h1 className="text-4xl text-white">{selected}</h1>
+                {!!(selectedIndex + 1) && (
+                    <h1 className="text-4xl text-white">
+                        {options[selectedIndex]}
+                    </h1>
                 )}
             </div>
             <div className="mt-5 flex justify-center">

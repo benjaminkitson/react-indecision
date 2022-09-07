@@ -1,13 +1,32 @@
-import React from "react";
+import React, { createContext, useState } from "react";
 
-const RandomContext = React.createContext();
+const RandomContext = createContext();
 
-function RandomContextProvider({ children }) {
+export function RandomContextProvider({ children }) {
+    const [number, setNumber] = useState(null);
+    const [selectedIndex, setSelectedIndex] = useState(null);
+
+    const generate = () => {
+        const num = Math.floor(Math.random() * number);
+        setSelectedIndex(num);
+    };
+
+    // TODO: Make custom number setting functions;
+    // TODO: Redux might be good for this;
+
+    const values = {
+        generate,
+        selectedIndex,
+        setSelectedIndex,
+        number,
+        setNumber,
+    };
+
     return (
-        <RandomContext.Provider value={utils}>
-            { children }
+        <RandomContext.Provider value={values}>
+            {children}
         </RandomContext.Provider>
-    )
+    );
 }
 
 export default RandomContext;
