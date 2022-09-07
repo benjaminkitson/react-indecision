@@ -12,7 +12,7 @@ function Random() {
     return (
         <RandomContextProvider>
             <Theme>
-                <Main />
+                <Dice />
             </Theme>
         </RandomContextProvider>
     );
