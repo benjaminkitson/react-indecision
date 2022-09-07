@@ -12,29 +12,7 @@ import {
 } from "react-icons/bs";
 
 export default function Dice() {
-    const { selectedIndex, setDisabledButton } = useContext(RandomContext);
-    const [display, setDisplay] = useState(selectedIndex);
-
-    useEffect(() => {
-        function tick(interval) {
-            if (!isDisabled) setDisabledButton(true);
-            setTimeout(() => {
-                interval *= 1.3;
-                const num = Math.floor(Math.random() * 6);
-                if (interval <= 700) {
-                    setDisplay(num);
-                    tick(interval);
-                } else {
-                    setDisplay(selectedIndex);
-                    setDisabledButton(false);
-                }
-            }, interval);
-        }
-        if (selectedIndex) {
-            tick(5);
-        }
-        // ! Causes a bug where if selectedIndex doesn't change, the effect doesn't run
-    }, [selectedIndex]);
+    const { selectedIndex } = useContext(RandomContext);
 
     const options = [
         BsFillDice1Fill,
@@ -55,9 +33,7 @@ export default function Dice() {
 
     // const [selection, setSelection] = useState(undefined);
 
-    const [isDisabled, setIsDisabled] = useState(false);
-
-    const Dice = options[display] || BeforeRoll;
+    const Dice = options[selectedIndex] || BeforeRoll;
 
     return (
         <div className="flex h-full w-full flex-col items-center justify-center text-9xl text-blue-700">

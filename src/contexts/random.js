@@ -6,15 +6,54 @@ export function RandomContextProvider({ children }) {
     // const [number, setNumber] = useState(null);
     // ! Testing dice
     const [number, setNumber] = useState(6);
+    const isDice = true;
 
     const [disabledButton, setDisabledButton] = useState(false);
 
-
     const [selectedIndex, setSelectedIndex] = useState(null);
 
+    function getRandomIndex(options = {}) {
+        //TODO: Later tweak this to incorporate min and max numbers
+        const { allowRepeat } = options;
+        let num = Math.floor(Math.random() * number);
+        if (!allowRepeat && num === selectedIndex) {
+            return getRandomIndex({
+                allowRepeat: false,
+            });
+        } else {
+            return num;
+        }
+    }
+
+    function animateDice(interval) {
+        if (!disabledButton) setDisabledButton(true);
+        setTimeout(() => {
+            interval *= 1.3;
+            if (interval <= 700) {
+                const num = getRandomIndex({
+                    allowRepeat: false,
+                });
+                setSelectedIndex(num);
+                animateDice(interval);
+            } else {
+                const num = getRandomIndex({
+                    allowRepeat: true,
+                });
+                setSelectedIndex(num);
+                setDisabledButton(false);
+            }
+        }, interval);
+    }
+
     const generate = () => {
-        const num = Math.floor(Math.random() * number);
-        setSelectedIndex(num);
+        if (isDice) {
+            animateDice(5);
+        } else {
+            const num = getRandomIndex({
+                allowRepeat: true,
+            });
+            setSelectedIndex(num);
+        }
     };
 
     // TODO: Make custom number setting functions;
@@ -26,8 +65,8 @@ export function RandomContextProvider({ children }) {
         setSelectedIndex,
         number,
         setNumber,
-        setDisabledButton,
         disabledButton,
+        setDisabledButton,
     };
 
     return (
