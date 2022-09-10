@@ -3,7 +3,6 @@ import React, { createContext, useState } from "react";
 const RandomContext = createContext();
 
 export function RandomContextProvider({ children }) {
-    // const [number, setNumber] = useState(null);
     // ! Testing dice
     const [number, setNumber] = useState(6);
     const isDice = true;

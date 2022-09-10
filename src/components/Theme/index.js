@@ -3,7 +3,6 @@ import Header from "../Header";
 import Footer from "../Footer";
 import Settings from "./Settings";
 import useSettings from "./Settings/useSettings";
-import { useState } from "react";
 
 export default function Theme({ children }) {
     const { openSettings, closeSettings, isOpen, isClosed } = useSettings();

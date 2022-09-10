@@ -5,7 +5,6 @@ export default function TextInput({
     className,
     onChange,
     value,
-    type,
     name,
 }) {
     return (

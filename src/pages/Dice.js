@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
-import RollDice from "../components/atoms/RollDice";
+import React, { useContext } from "react";
 import RandomContext from "../contexts/Random";
 
 import {
@@ -26,17 +25,15 @@ export default function Dice() {
     function BeforeRoll() {
         return (
             <div>
-                <h1>Roll the dice!</h1>
+                <h1 className="text-6xl">Roll the dice!</h1>
             </div>
         );
     }
 
-    // const [selection, setSelection] = useState(undefined);
-
     const Dice = options[selectedIndex] || BeforeRoll;
 
     return (
-        <div className="flex h-full w-full flex-col items-center justify-center text-9xl text-blue-700">
+        <div className="flex h-full w-full flex-col items-center justify-center text-[250px] text-blue-700">
             <Dice />
         </div>
     );
